@@ -2468,6 +2468,7 @@ renderPage('exec');
     var m = STATE_TT.month, r = TT.months[m]||{}, pm = prevOf(m), p = pm ? TT.months[pm] : {};
     var s = r.summary||{}, ps = (p&&p.summary)||{};
     var h = '<div class="tt-top"><div class="page-desc" style="margin:0">Paid media run by Triptease (Metasearch on Google Hotel Ads, Paid Search, Retargeting) and rate parity against the OTAs. Monthly figures'+(pm?', compared with '+lab(pm):'')+'.</div>'+
+      (r.reportPdf?'<a class="ctrl" style="text-decoration:none;font-size:12.5px;padding:7px 12px;border:1px solid var(--border);border-radius:8px;background:var(--surface)" target="_blank" rel="noopener" href="'+esc(r.reportPdf)+'">Download report (PDF)</a> ':'')+
       '<select id="ttMonth" aria-label="Triptease month">'+REPORT_MONTHS.slice().reverse().map(function(x){ return '<option value="'+x+'"'+(x===m?' selected':'')+'>'+lab(x)+'</option>'; }).join('')+'</select></div>';
     if(r.headline) h += '<p class="tt-head">'+esc(r.headline)+'</p>';
     if(r.summary){
